@@ -9,7 +9,6 @@ export class SettingsService {
   private _sdkKey : BehaviorSubject<string> = new BehaviorSubject<string>('');
   public sdkKey$ = this._sdkKey.asObservable();
   public set sdkKey(value: string) {
-    console.log('sdkKey', value)
     this._sdkKey.next(value);
   }
   public get sdkKey() {
@@ -19,7 +18,6 @@ export class SettingsService {
   private _modelId : BehaviorSubject<string> = new BehaviorSubject<string>('');
   public modelId$ = this._modelId.asObservable();
   public set modelId(value: string) {
-    console.log('modelId', value)
     this._modelId.next(value);
   }
   public get modelId() {

@@ -6,7 +6,6 @@ import { MpSdk, setupSdk, SetupSdkOptions } from '@matterport/sdk';
 
 
 import { SettingsService } from '../services/settings.service';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -42,7 +41,6 @@ export class ModelViewerComponent {
         this.settings.sdkKey$
       ]).subscribe(([modelId, sdkKey]) => {
         if (modelId.length > 5 && sdkKey.length > 5) {
-          console.log('setting up sdk', modelId, sdkKey);
           this.iframe.nativeElement.src = `https://my.matterport.com/show/?m=${this.settings.modelId}&play=1&applicationKey=${this.settings.sdkKey}&dh=0&qs=1&brand=1&search=0&hr=0&title=0`;
           this._showIframe.next(true);
           var options: SetupSdkOptions = { iframe: this.iframe.nativeElement, space: modelId };
